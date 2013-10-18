@@ -1,8 +1,8 @@
 /**
- * @component Village
+ * @component Flower
  *
  */
-Crafty.c('Village', {
+Crafty.c('Flower', {
     init: function(){
         this.requires('Actor, Color, spr_flower');
     },
@@ -10,6 +10,6 @@ Crafty.c('Village', {
     visited: function(){
         this.destroy();
         //this.color('rgb(170, 125, 240)');
-        Crafty.trigger('VillageVisited', this);
+        Crafty.trigger('FlowerVisited', this);
     }
 });

@@ -7,7 +7,7 @@ Crafty.c('PlayerCharacter', {
         this.requires('Actor, Fourway, Color, Collision, spr_taobao')
         .fourway(4)
         .color('rgba(1,1,1,0)')
-        .onHit('Village', this.visitVillage)
+        .onHit('Flower', this.visitFlower)
         .stopOnSolids();
     },
 
@@ -24,7 +24,7 @@ Crafty.c('PlayerCharacter', {
         }
     },
 
-    visitVillage: function(data){
+    visitFlower: function(data){
         village = data[0].obj;
         village.visited();
     }

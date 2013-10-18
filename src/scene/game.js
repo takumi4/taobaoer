@@ -40,20 +40,20 @@ Crafty.scene('Game', function(){
         for(var y=0; y<Game.map_grid.height; y++){
             if(Math.random() < 0.02){
 
-                if(Crafty('Village').length < max_villages && !this.occupied[x][y]){
-                    Crafty.e('Village').at(x, y);
+                if(Crafty('Flower').length < max_villages && !this.occupied[x][y]){
+                    Crafty.e('Flower').at(x, y);
                     //this.occupied[x][y] = true;
                 }
             }
         }
     }
 
-    this.show_visited = this.bind('VillageVisited', function(){
-        if(!Crafty('Village').length){
+    this.show_visited = this.bind('FlowerVisited', function(){
+        if(!Crafty('Flower').length){
             Crafty.scene('Victory');
         }
         return;
-        if(Crafty('Village').length){
+        if(Crafty('Flower').length){
             Crafty.scene('God');
         }else{
             Crafty.scene('Victory');
@@ -61,5 +61,5 @@ Crafty.scene('Game', function(){
     });
 
 }, function(){
-    this.unbind('VillageVisited', this.show_visited);
+    this.unbind('FlowerVisited', this.show_visited);
 });

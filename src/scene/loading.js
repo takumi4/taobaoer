@@ -3,7 +3,7 @@
  */
 Crafty.scene('Loading', function(){
     Crafty.load(['assets/sprite.png'], function(){
-        Crafty.sprite(16, 'assets/sprite.png', {
+        Crafty.sprite(32, 'assets/sprite.png', {
             spr_tree: [0,0],
             spr_flower: [1, 0],
             spr_taobao: [2, 0]
