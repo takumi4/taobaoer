@@ -6,7 +6,8 @@ Crafty.scene('Loading', function(){
         Crafty.sprite(32, 'assets/sprite.png', {
             spr_tree: [0,0],
             spr_flower: [1, 0],
-            spr_taobao: [2, 0]
+            spr_flowers: [2, 0],
+            spr_taobao: [0, 1]
         });
         Crafty.scene('Game');
     });

@@ -18,7 +18,6 @@ Crafty.scene('Game', function(){
 
 
 
-
     for(var x=0; x<Game.map_grid.width; x++){
         for(var y=0; y<Game.map_grid.height; y++){
             var at_edge = x == 0 || x == Game.map_grid.width - 1 || y == 0 || y == Game.map_grid.height - 1;
@@ -35,31 +34,40 @@ Crafty.scene('Game', function(){
 
     }
 
-    max_villages = 5;
+    max_villages = 20;
     for(var x=0; x<Game.map_grid.width; x++){
         for(var y=0; y<Game.map_grid.height; y++){
-            if(Math.random() < 0.02){
+            if(Math.random() < 0.22){
 
                 if(Crafty('Flower').length < max_villages && !this.occupied[x][y]){
                     Crafty.e('Flower').at(x, y);
-                    //this.occupied[x][y] = true;
+                    this.occupied[x][y] = true;
                 }
             }
         }
     }
+    for(var x=0; x<Game.map_grid.width; x++){
+        for(var y=0; y<Game.map_grid.height; y++){
+            if(Math.random() < 0.22){
 
-    this.show_visited = this.bind('FlowerVisited', function(){
-        if(!Crafty('Flower').length){
+                if(Crafty('Flowers').length < max_villages && !this.occupied[x][y]){
+                    Crafty.e('Flowers').at(x, y);
+                    this.occupied[x][y] = true;
+                }
+            }
+        }
+    }
+    
+    function visit(){
+        console.log(Crafty('Flowers').length , Crafty('Flower').length);
+        if(!(Crafty('Flowers').length + Crafty('Flower').length)){
             Crafty.scene('Victory');
         }
-        return;
-        if(Crafty('Flower').length){
-            Crafty.scene('God');
-        }else{
-            Crafty.scene('Victory');
-        }
-    });
+    }
+    this.show_visited = this.bind('FlowerVisited', visit);
+    this.show_visited = this.bind('FlowersVisited', visit);
 
 }, function(){
     this.unbind('FlowerVisited', this.show_visited);
+    this.unbind('FlowersVisited', this.show_visited);
 });

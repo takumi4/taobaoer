@@ -8,6 +8,7 @@ Crafty.c('PlayerCharacter', {
         .fourway(4)
         .color('rgba(1,1,1,0)')
         .onHit('Flower', this.visitFlower)
+        .onHit('Flowers', this.visitFlowers)
         .stopOnSolids();
     },
 
@@ -25,8 +26,13 @@ Crafty.c('PlayerCharacter', {
     },
 
     visitFlower: function(data){
-        village = data[0].obj;
-        village.visited();
+        flower = data[0].obj;
+        flower.visited();
+    },
+
+    visitFlowers: function(data){
+        flowers = data[0].obj;
+        flowers.visited();
     }
 
 });
