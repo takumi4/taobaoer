@@ -9,12 +9,12 @@ Crafty.scene('Game', function(){
     for(var x=0; x<Game.map_grid.width; x++){
         this.occupied[x] = new Array(Game.map_grid.height);
         for(var y=0; y<Game.map_grid.height; y++){
-            this.occupied[x][y] = false;
+            this.occupied[x][y] = 'none';
         }
     }
 
     this.player = Crafty.e('PlayerCharacter').at(5, 5);
-    this.occupied[this.player.at().x][this.player.at().y] = true;
+    this.occupied[this.player.at().x][this.player.at().y] = 'character';
 
 
 
@@ -24,11 +24,8 @@ Crafty.scene('Game', function(){
 
             if(at_edge){
                 Crafty.e('Tree').at(x, y);
-                this.occupied[x][y] = true;
+                this.occupied[x][y] = 'tree';
 
-            }else if(Math.random() < 0.26 && !this.occupied[x][y]){
-                Crafty.e('Bush').at(x, y);
-                this.occupied[x][y] = true;
             }
         }
 
@@ -39,9 +36,9 @@ Crafty.scene('Game', function(){
         for(var y=0; y<Game.map_grid.height; y++){
             if(Math.random() < 0.22){
 
-                if(Crafty('Flower').length < max_villages && !this.occupied[x][y]){
+                if(Crafty('Flower').length < max_villages && this.occupied[x][y] == 'none'){
                     Crafty.e('Flower').at(x, y);
-                    this.occupied[x][y] = true;
+                    this.occupied[x][y] = 'flower';
                 }
             }
         }
@@ -50,13 +47,44 @@ Crafty.scene('Game', function(){
         for(var y=0; y<Game.map_grid.height; y++){
             if(Math.random() < 0.22){
 
-                if(Crafty('Flowers').length < max_villages && !this.occupied[x][y]){
+                if(Crafty('Flowers').length < max_villages && this.occupied[x][y] == 'none'){
                     Crafty.e('Flowers').at(x, y);
-                    this.occupied[x][y] = true;
+                    this.occupied[x][y] = 'flowers';
                 }
             }
         }
     }
+
+
+
+    function isVisited(occupiedMap, x, y){
+
+        var testMap = [];
+
+        occupiedMap.forEach(function(row, idx){
+            testMap[idx] = row.concat();
+        });
+
+        console.log(testMap);
+
+
+
+        var maxX = occupiedMap.length,
+        maxY = occupiedMap[x].length;
+
+    }
+
+    
+    for(var x=0; x<Game.map_grid.width; x++){
+        for(var y=0; y<Game.map_grid.height; y++){
+
+            if(Math.random() < 0.26 && this.occupied[x][y] == 'none'){
+                Crafty.e('Bush').at(x, y);
+                this.occupied[x][y] = 'bush';
+            }
+        }
+    }
+
     
     function visit(){
         console.log(Crafty('Flowers').length , Crafty('Flower').length);
