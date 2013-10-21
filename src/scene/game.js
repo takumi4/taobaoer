@@ -72,6 +72,8 @@ Crafty.scene('Game', function(){
         var maxX = occupiedMap.length,
         maxY = occupiedMap[x].length;
 
+        return ture;
+
     }
 
     
