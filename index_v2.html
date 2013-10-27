@@ -19,6 +19,10 @@
 seajs.config({
     base: './',
     preload: ['lib/seajs-text-debug'],
+    paths: {
+        collections: 'app/collections',
+        models: 'app/models'
+    },
     alias: {
         jquery: 'lib/jquery-2.0.3.cmd.js',
         crafty: 'lib/crafty.js',

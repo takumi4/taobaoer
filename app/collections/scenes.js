@@ -4,6 +4,8 @@ define(function(require, exports, module){
     Scene = require('models/scene'),
     scenesData = require('game/scenes');
 
+    debugger;
+
     Scenes = Backbone.Collection.extend({
         model: Scene,
         findByName: function(name){

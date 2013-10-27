@@ -15,13 +15,12 @@ define(function(require, exports, module){
             var init = this.get('init'),
             scene = this;
 
-
             return Crafty.scene(this.get('name'), function(){
                 init(scene.optionBuffer);
             }, this.get('uninit'));
 
         },
-        load: function(opitons){
+        load: function(options){
             this.optionsBuffer = options || {};
 
             var sceneName = this.get('name');
@@ -29,13 +28,9 @@ define(function(require, exports, module){
                 Crafty.scene(sceneName);
                 this.optionsBuffer = {};
             });
-
-
         }
     });
 
-    _.extend(exports, Scene);
-    
-
+    module.exports = Scene;
 
 });

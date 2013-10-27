@@ -2,10 +2,10 @@ define(function(require, exports, module){
 
     var _ = require('underscore'),
     crafty = require('crafty'),
-    backbone = require('backbone'),
+    Backbone = require('backbone'),
     home = require('app/views/home/show');
 
-    var AppRouter = backbone.Router.extend({
+    var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'home',
             'levels/:id': 'level'
@@ -23,7 +23,7 @@ define(function(require, exports, module){
     exports = _.extend(exports, {
         initialize: function(){
             router = new AppRouter;
-            backbone.history.start();
+            Backbone.history.start();
         },
         go: function(to){
             router.navigate(to, {trigger:true, replace:true});
