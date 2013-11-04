@@ -1,0 +1,48 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+#outer_background {
+    background: black;
+    width: 985px;
+    height: 459px;
+}
+.outer_fixed {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -492px;
+    margin-top: -230px;
+}
+.outer_absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -492px;
+    margin-top: -230px;
+}
+
+#cr-stage, #wrapper, #inner_background {
+    width: 710px;
+    height: 580px;
+}
+
+#inner_background {
+    z-index: 0;
+    background: gray;
+}
+
+#cr-stage {
+    z-index: 1;
+}
+
+#wrapper {
+    z-index: 2;
+}
+.viewport_fixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -355px;
+    margin-top: -290px;
+}

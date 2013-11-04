@@ -29,7 +29,11 @@ define(function(require, exports, module){
 
             function replaceViewport(){
                 if(viewport.height > $('body').height()){
-                    
+                    $viewport.removeClass('viewport_fixed').addClass('viewport_absolute');
+                    $outer.removeClass('outer_fixed').addClass('outer_absolute');
+                }else{
+                    $viewport.removeClass('viewport_absolute').addClass('viewport_fixed');
+                    $outer.removeClass('outer_absolute').addClass('outer_fixed');
                 }
 
                 viewport.offset = $('#cr-stage').offset();

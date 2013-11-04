@@ -13,7 +13,7 @@ define(function(require, exports, module){
             });
         },
         loadByScene: function(scene, callback){
-            var assets = this.findByName(scene);
+            var assets = this.findByScene(scene);
 
             var callbacks = {
                 onLoad: callback || function(){},
@@ -26,6 +26,6 @@ define(function(require, exports, module){
     });
 
 
-    return new Assets(assetsData);
+    module.exports = new Assets(assetsData);
 
 });

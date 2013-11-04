@@ -14,5 +14,5 @@ define(function(require, exports, module){
         }
     });
 
-    _.extend(exports, new Show);
+    module.exports = new Show;
 });
